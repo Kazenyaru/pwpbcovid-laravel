@@ -56,7 +56,11 @@ class ApiController extends Controller
     {
         $whereStatistik = '1=1';
         if ($request->query('hariIni') == true) {
-            $whereStatistik = "Tanggal > CURRENT_TIMESTAMP - INTERVAL '3' DAY AND PDP > 0";
+            $interval = 3;
+            if ($request->query('interval')) {
+                $interval = $request->query('interval');
+            }
+            $whereStatistik = "Tanggal > CURRENT_TIMESTAMP - INTERVAL '$interval' DAY AND PDP > 0";
         }
 
         $defaultQueryStatistik = "where=$whereStatistik&orderByFields=Hari_ke ASC&outFields=*&outSR=4326&f=json";
