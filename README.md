@@ -6,7 +6,7 @@ PWPB Covid adalah sebuah projek akhir untuk pelajaran PWPB di kelas XI, projek i
 
 # To Run this Application
 
-> composer install
+> composer install <br>
 > php artisan voyager:install --with-dummy
 
 # Login with
